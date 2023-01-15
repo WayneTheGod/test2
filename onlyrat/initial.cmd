@@ -18,5 +18,5 @@ powershell ./wget.cmd
 pause 
 
 @REM cd back  to intial location
-cd "%INITIALPATH%"
+@REM cd "%INITIALPATH%"
 @REM del initial.cmd 
