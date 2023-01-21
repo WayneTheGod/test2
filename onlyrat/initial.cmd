@@ -4,7 +4,7 @@
 
 @REM variables
 set "INITIALPATH=%cd%"
-set "STARTUP=C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start_Menu\Programs\Startup"
+set "STARTUP= C:\Users\USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 @REM move into startup directory 
 cd %STARTUP%
